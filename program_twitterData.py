@@ -13,8 +13,8 @@ import nltk
 #f = codecs.open("data\TwitterData.txt", "r", encoding="utf-8").read()
 f = codecs.open("data/TwitterData.txt", "r", encoding="ISO-8859-1").read()
 
-#f = f.replace('@', ' ')
-#f = f.replace('#', '')
+f = f.replace('@', ' ')
+f = f.replace('#', '')
 #f = f.replace(',', '')
 #f = f.replace('"', ' ')
 #f = f.replace('?', ' ')
@@ -55,6 +55,9 @@ spell = SpellChecker()
 
 # find those words that may be misspelled
 misspelled = spell.unknown(tokenized_list)
+print('mispelled words are')
+print(misspelled)
+
 
 for word in tokenized_list:
 #    # Get the one `most likely` answer
@@ -79,10 +82,14 @@ twitter_correctData.close()
         
     
 
+
+
+
+
     
 correct_dataFile = codecs.open('tokenized_TwitterData.txt','r', encoding="utf-8").read()  
 
-print('#####part three #######')    
+print('#####part three stemmeing#######')    
 ######stemming   
 from nltk.stem.porter import PorterStemmer
 porter_stemmer = PorterStemmer()
@@ -92,6 +99,7 @@ print('\n\n')
 
 
 ######lemetization
+print('#####part three lemmatizing#######')   
 from nltk.stem import WordNetLemmatizer
 wordnet_lemmatizer = WordNetLemmatizer()
 

@@ -11,9 +11,8 @@ import re
 
 f = codecs.open("data/ReseaarchPaperData.txt", "r", encoding="ISO-8859-1").read()
 
-f = f.replace(':', '')
-f = f.replace(',', ' ')
-f = f.replace('.', ' ')
+#f = f.replace(':', '')
+f = f.replace(' ,', ',')
 
 f = f.strip()
 regex = re.compile('.*?\((.*?)\)')
@@ -43,6 +42,10 @@ spell = SpellChecker()
 
 # find those words that may be misspelled
 misspelled = spell.unknown(tokenized_list)
+print('mispelled words are')
+print(misspelled)
+
+
 
 for word in tokenized_list:
 #    # Get the one `most likely` answer
@@ -89,8 +92,7 @@ print('\n\n')
 from nltk.stem import WordNetLemmatizer
 wordnet_lemmatizer = WordNetLemmatizer()
 
-print(wordnet_lemmatizer.lemmatize(correct_dataFile))
-    
+
 
 ##tf.close()
 #f.close()
